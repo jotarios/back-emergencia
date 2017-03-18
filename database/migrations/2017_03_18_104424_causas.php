@@ -19,7 +19,7 @@ class Causas extends Migration
             $table->float('gather_point_lng');
             $table->string('gather_point_street', 100);
             $table->string('city');
-            $table->string('department');            
+            $table->string('street');            
             $table->float('work_zone_lat');
             $table->float('work_zone_lng');
             $table->string('work_zone_radious');
@@ -38,6 +38,6 @@ class Causas extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('causas');
     }
 }

@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Causa;
+use Illuminate\Support\Facades\Auth;
+
 
 class CausaController extends Controller
 {
@@ -16,31 +18,6 @@ class CausaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getEvent($id,$code)
-    {
-        $code = ''; //TO-DO
-        //Utilize Laravel Own Request Class to create a Request either via 'GET' or 'POST'
-        $request = \Request::create("https://graph.facebook.com/v2.8/" + $id + '?acces_token=' + $code , 'GET');
-
-        //This will return JsonResponse that contains API response in a data and content protected property
-        $response = \Route::dispatch($request);
-
-        //METHOD 1 :: Return JSON Response
-        $result = $response->getContent();
-
-        /* FOTOOOOS */
-        $request_ph = \Request::create("https://graph.facebook.com/v2.8/" + $id + '?fields=cover&acces_token=' + $code, 'GET');
-        $response_ph = \Route::dispatch($request_ph);
-        $result_ph = $response_ph->getContent();
-
-        //To decode into JSON object
-        json_decode($result);
-        json_decode($result_ph);
-
-        return view('create_initiative', ['res' => $result, 'picture' => $result_ph]);
-
-    }
-
     public function index()
     {
         /*
@@ -58,9 +35,17 @@ class CausaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return View::make('causas.create');
+        $token = Auth::user()->token;
+        $client = new \GuzzleHttp\Client();
+
+        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents();
+        //dd($eventDetails);
+
+        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents();
+
+        return view('causas.create', ['eventDetails' => json_decode($eventDetails), 'picture' => json_decode($eventPhoto)]);
     }
 
     /**
@@ -93,8 +78,9 @@ class CausaController extends Controller
             return Redirect::to('/')
                 ->withErrors($validator);
         }else{
-            $causa = new Causa;
-            $causa->description = Input::get('description'); 
+            $causa = Causa::create($request->all());
+            
+            /*$causa->description = Input::get('description'); 
             $causa->gather_point_lat = Input::get('gather_point_lat'); 
             $causa->gather_point_lng = Input::get('gather_point_lng'); 
             $causa->gather_point_street = Input::get('gather_point_street'); 
@@ -107,7 +93,7 @@ class CausaController extends Controller
             $causa->picture = Input::get('picture'); 
             $causa->start_time = Input::get('start_time'); 
             $causa->end_time = Input::get('end_time');
-            $causa->save();
+            $causa->save();*/
 
             Session::flash('message', '¡Subido con éxito!');
             return Redirect::to('/');

@@ -18,6 +18,7 @@ class Usuarios extends Migration
             $table->string('email')->unique();
             $table->string('facebook_id')->unique();
             $table->string('avatar');
+            $table->string('token');
             $table->string('remember_token', 100);
             $table->timestamps();
         }); 
@@ -30,6 +31,6 @@ class Usuarios extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('users');
     }
 }
