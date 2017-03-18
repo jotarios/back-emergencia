@@ -24,7 +24,7 @@ class Causas extends Migration
             $table->float('work_zone_lng');
             $table->string('work_zone_radious');
             $table->integer('expected_volunteers');
-            $tabla->string('picture');
+            $table->string('picture');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->timestamps();

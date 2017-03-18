@@ -14,12 +14,14 @@
  //Route::resource('users', 'UserController');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('home', array('as' => 'home', 'uses' => function(){
-  return view('home');
-}));
+Route::get('/voluntarios', 'CausaController@index');
+
+Route::get('/login', function () {
+	return view('login');
+});
 
 //Get data of the FB's Event
 Route::get('/get_event', function () {
@@ -30,7 +32,9 @@ Route::get('/get_manual_data', function () {
 	return view('get_manual_data');  //TO-DO
 });
 
-Route::post('/create_event', 'CausaController@getEvent');
+Route::get('/create_event', function (){
+	return view('create_event');
+});
 
 
 Route::resource('causas', 'CausaController');
