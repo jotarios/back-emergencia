@@ -38,6 +38,6 @@ class Causas extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('causas');
     }
 }

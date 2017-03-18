@@ -20,19 +20,14 @@ class CausaController extends Controller
      */
     public function getEvent($id)
     {
-        $token = env('FACEBOOK_OAUTH');
-        //$authUser = User::where('facebook_id', $facebookUser->id)->first();
+        $token = Auth::user()->token;
         $client = new \GuzzleHttp\Client();
 
-        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token);
+        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents();
 
-                
-        /* FOTOOOOS */
-        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token);
-        
-        
-        return view('create_initiative', ['res' => $eventDetails->getBody()->getContents(), 'picture' => $eventPhoto->getBody()->getContents()]);
+        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents();
 
+        return view('create_initiative', ['eventDetails' => $eventDetails, 'picture' => $eventPhoto]);
     }
 
     public function index()
