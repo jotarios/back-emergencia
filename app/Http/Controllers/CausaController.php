@@ -74,8 +74,9 @@ class CausaController extends Controller
             return Redirect::to('/')
                 ->withErrors($validator);
         }else{
-            $causa = new Causa;
-            $causa->description = Input::get('description'); 
+            $causa = Causa::create($request->all());
+            
+            /*$causa->description = Input::get('description'); 
             $causa->gather_point_lat = Input::get('gather_point_lat'); 
             $causa->gather_point_lng = Input::get('gather_point_lng'); 
             $causa->gather_point_street = Input::get('gather_point_street'); 
@@ -88,7 +89,7 @@ class CausaController extends Controller
             $causa->picture = Input::get('picture'); 
             $causa->start_time = Input::get('start_time'); 
             $causa->end_time = Input::get('end_time');
-            $causa->save();
+            $causa->save();*/
 
             Session::flash('message', '¡Subido con éxito!');
             return Redirect::to('/');
