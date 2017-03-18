@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Causa;
+use Illuminate\Support\Facades\Auth;
+
 
 class CausaController extends Controller
 {
@@ -16,28 +18,20 @@ class CausaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getEvent($id,$code)
+    public function getEvent($id)
     {
-        $code = ''; //TO-DO
-        //Utilize Laravel Own Request Class to create a Request either via 'GET' or 'POST'
-        $request = \Request::create("https://graph.facebook.com/v2.8/" + $id + '?acces_token=' + $code , 'GET');
+        $token = env('FACEBOOK_OAUTH');
+        //$authUser = User::where('facebook_id', $facebookUser->id)->first();
+        $client = new \GuzzleHttp\Client();
 
-        //This will return JsonResponse that contains API response in a data and content protected property
-        $response = \Route::dispatch($request);
+        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token);
 
-        //METHOD 1 :: Return JSON Response
-        $result = $response->getContent();
-
+                
         /* FOTOOOOS */
-        $request_ph = \Request::create("https://graph.facebook.com/v2.8/" + $id + '?fields=cover&acces_token=' + $code, 'GET');
-        $response_ph = \Route::dispatch($request_ph);
-        $result_ph = $response_ph->getContent();
-
-        //To decode into JSON object
-        json_decode($result);
-        json_decode($result_ph);
-
-        return view('create_initiative', ['res' => $result, 'picture' => $result_ph]);
+        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token);
+        
+        
+        return view('create_initiative', ['res' => $eventDetails->getBody()->getContents(), 'picture' => $eventPhoto->getBody()->getContents()]);
 
     }
 

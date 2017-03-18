@@ -30,7 +30,7 @@ Route::get('/get_manual_data', function () {
 	return view('get_manual_data');  //TO-DO
 });
 
-Route::post('/create_event', 'CausaController@getEvent');
+Route::get('/causaGetEvent/{id}', 'CausaController@getEvent');
 
 
 Route::resource('causas', 'CausaController');
