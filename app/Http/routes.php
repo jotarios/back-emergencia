@@ -32,7 +32,6 @@ Route::group(['middleware' => 'auth'], function() {
 
 		Route::get('/causaGetEvent/{id}', 'CausaController@getEvent');
 
-
 		Route::resource('causas', 'CausaController');
 
 		/*FACEBOOK*/
