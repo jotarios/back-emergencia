@@ -71,17 +71,39 @@
       <div class="container">
         <div class="col s4">
           <div class="card-panel red darken-4 center">
-            <span class="white-text titulo3"><a href="#" class="white-text">AGREGAR EVENTO</a>
+            <span class="white-text titulo3"><a href="#" data-target="modal_agregar" class="white-text">AGREGAR EVENTO</a>
           </span>
         </div>
       </div>
     </div>
+
+    <!-- Modal Structure -->
+    <div id="modal_agregar" class="modal">
+      <div class="modal-content">
+        <p>Ingresa la url de tu evento de Facebook</p>
+        <div class="input-field col s12">
+          <input placeholder="Ejemplo: https://www.facebook.com/events/1115929058529970/" id="facebook_event" type="text" class="validate">
+          <label for="facebook_event">URL de Evento</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">CREAR EVENTO</a>
+      </div>
+    </div>
+
 @stop
 @section('js')
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#modal_voluntario').modal();
-			$('#modal_refugio').modal();
+			 $('#modal_voluntario').modal();
+			 $('#modal_refugio').modal();
+        $('#modal_agregar').modal({
+          complete: function() { 
+            var facebook_url = $('#facebook_event').val();
+            var url_parts = facebook_url.match(/https?\:\/\/(?:www\.)?facebook\.com\/(\d+|[A-Za-z0-9\.]+)\/(\d+|[A-Za-z0-9\.]+)\/?/);
+            window.location.replace("{{ url('causas/crear')}}" + "/" + url_parts[2]);
+          }
+        });
   		});
 	</script>
 @stop
