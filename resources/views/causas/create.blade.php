@@ -13,6 +13,7 @@
           </div>
         </div>        
           <p>Mapa</p>
+          <div id="map" style="width: 100%; height: 400px;"></div>
           <div class="row reduceRow">
             <div class="input-field col s12 m12 l12">
                   <input id="last_name" type="text" class="validate">
@@ -54,43 +55,6 @@
   </div>
 </div>
 </div>
-
-    <h1>Crear Evento</h1>
-
-    <div class="row">
-        <form action="{{ url('/causas/store') }}" method="post" class="form-horizontal">
-            <div class="col-md-12">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                <div class="form-group">
-                    <p>Descripción:</p>
-                    <div class="col-sm-10">
-                        <textarea class="form-control" rows="25">{{$eventDetails->description}}</textarea>
-                    </div>
-                </div>
-                
-                <div id="map">
-                    
-                </div>
-
-                <div class="form-group">
-                    <label for="expected_volunteers" class="col-sm-2 control-label">Voluntarios Esperados:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="expected_volunteers" id="expected_volunteers" class="form-control" value="">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <button id="btn_save_stage" type="submit" class="btn btn-primary">Enviar</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
-@stop
-
 <script>
 
 // The following example creates a marker in Stockholm, Sweden using a DROP
@@ -130,3 +94,4 @@ function toggleBounce() {
   }
 }
 </script>
+@stop
