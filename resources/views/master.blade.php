@@ -16,6 +16,8 @@
         @yield('content')
     </div>
 
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 </body>
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZtQOIf5GmXC4r_DymvtBuYIGdnENXb4&callback=initMap"></script>
 </html>

@@ -1,7 +1,16 @@
 @extends('master')
 
 @section('content')
-    
+     <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 60%;
+      }
+    </style>
     <h1>Crear Evento</h1>
 
     <div class="row">
@@ -12,8 +21,12 @@
                 <div class="form-group">
                     <p>Descripción:</p>
                     <div class="col-sm-10">
-                        <textarea class="form-control" rows="3">{{ $eventDetails->description }}</textarea>
+                        <textarea class="form-control" rows="25">{{$eventDetails->description}}</textarea>
                     </div>
+                </div>
+                
+                <div id="map">
+                    
                 </div>
 
                 <div class="form-group">
@@ -33,3 +46,42 @@
     </div>
 
 @stop
+
+<script>
+
+// The following example creates a marker in Stockholm, Sweden using a DROP
+// animation. Clicking on the marker will toggle the animation between a BOUNCE
+// animation and no animation.
+
+var marker;
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 13,
+    center: {lat: {{$eventDetails->place->location->latitude}}, lng: {{$eventDetails->place->location->longitude}} }
+  });
+
+  marker = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: {lat: {{$eventDetails->place->location->latitude}}, lng: {{$eventDetails->place->location->longitude}} }
+  });
+  marker1 = new google.maps.Marker({
+    map:map,
+    draggable:true,
+    animation:google.maps.Animation.DROP,
+    position:{lat:-12.04, lng:-77.02 }
+  });
+  marker.addListener('click', toggleBounce);
+  marker1.addListener('click',toggleBounce);
+}
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
+</script>

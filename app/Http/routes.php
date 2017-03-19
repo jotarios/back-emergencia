@@ -30,7 +30,9 @@ Route::get('home', array('as' => 'home', 'uses' => function(){
   return view('home');
 }));
 Route::group(['middleware' => 'auth'], function() {
-		
+		Route::get('/get_manual_data', function () {
+			return view('get_manual_data');  //TO-DO
+		});
 		Route::resource('causas', 'CausaController');
 		Route::get('causas/crear/{id}', 'CausaController@create');
 });
