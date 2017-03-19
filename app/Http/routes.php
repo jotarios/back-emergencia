@@ -23,6 +23,10 @@ Route::get('/login', function () {
 	return view('login');
 });
 
+Route::get('/create_event', function (){
+	return view('create_event');
+});
+
 /*FACEBOOK*/
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
