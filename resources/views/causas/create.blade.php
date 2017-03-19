@@ -65,7 +65,8 @@ function initMap() {
     map: map,
     draggable: true,
     animation: google.maps.Animation.DROP,
-    position: {lat: {{$eventDetails->place->location->latitude}}, lng: {{$eventDetails->place->location->longitude}} }
+    position: {lat: {{$eventDetails->place->location->latitude}}, lng: {{$eventDetails->place->location->longitude}} },
+    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'  
   });
   marker1 = new google.maps.Marker({
     map:map,
