@@ -22,7 +22,7 @@
           </div>
           <div class="row reduceRow">
             <div class="input-field col s6">
-                  <input placeholder="18 de mayo 8:00 p.m." id="start_time" type="text" class="validate">
+                  <input placeholder="18 de mayo 8:00 p.m." id="start_time" type="text" value="{{$eventDetails->start_time}}" class="validate">
                   <label for="start_time">Fecha de Inicio</label>
               </div>
               <div class="input-field col s6">
@@ -80,7 +80,7 @@ function initMap() {
     map:map,
     draggable:true,
     animation:google.maps.Animation.DROP,
-    position:{lat:-12.04, lng:-77.02 }
+    position:{lat:{{($eventDetails->place->location->latitude - 0.0010)}}, lng: {{($eventDetails->place->location->longitude + 0.0050)}} }
   });
   marker.addListener('click', toggleBounce);
   marker1.addListener('click',toggleBounce);
