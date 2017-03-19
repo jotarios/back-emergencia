@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-	<div class="grey row vh">
+	<div class="grey lighten-4 row">
     <div class="container">
       <div class="row">
         <div class="col s12 center">
@@ -14,7 +14,9 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <br>
     <div class="row btt">
       <div class="container">
