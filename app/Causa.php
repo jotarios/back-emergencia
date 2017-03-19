@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Causa extends Model
 {
-    protected $table = 'usuarios';
+    protected $table = 'causas';
 
     protected $id = 'id';
     

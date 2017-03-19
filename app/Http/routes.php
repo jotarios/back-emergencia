@@ -14,26 +14,25 @@
  //Route::resource('users', 'UserController');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+Route::get('/voluntarios', 'CausaController@index');
+
+Route::get('/login', function () {
+	return view('login');
+});
+
+/*FACEBOOK*/
+Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 Route::get('home', array('as' => 'home', 'uses' => function(){
   return view('home');
 }));
 Route::group(['middleware' => 'auth'], function() {
-		
-		Route::get('/get_event', function () {
-		    return view('create_initiative'); //TO-DO
-		});
-
 		Route::get('/get_manual_data', function () {
 			return view('get_manual_data');  //TO-DO
 		});
 		Route::resource('causas', 'CausaController');
 		Route::get('causas/crear/{id}', 'CausaController@create');
-
-		/*FACEBOOK*/
-		Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
-		Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
 });
-//Get data of the FB's Event
