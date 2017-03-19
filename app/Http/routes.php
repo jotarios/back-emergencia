@@ -29,10 +29,8 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::get('/get_manual_data', function () {
 			return view('get_manual_data');  //TO-DO
 		});
-
-		Route::get('/causaGetEvent/{id}', 'CausaController@getEvent');
-
 		Route::resource('causas', 'CausaController');
+		Route::get('causas/crear/{id}', 'CausaController@create');
 
 		/*FACEBOOK*/
 		Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');

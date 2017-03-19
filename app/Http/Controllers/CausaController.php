@@ -18,18 +18,6 @@ class CausaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getEvent($id)
-    {
-        $token = Auth::user()->token;
-        $client = new \GuzzleHttp\Client();
-
-        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents();
-
-        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents();
-
-        return view('create_initiative', ['eventDetails' => $eventDetails, 'picture' => $eventPhoto]);
-    }
-
     public function index()
     {
         $causas = Causa::all();
@@ -43,9 +31,17 @@ class CausaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return View::make('causas.create');
+        $token = Auth::user()->token;
+        $client = new \GuzzleHttp\Client();
+
+        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents();
+       
+
+        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents();
+
+        return view('causas.create', ['eventDetails' => json_decode($eventDetails), 'picture' => json_decode($eventPhoto)]);
     }
 
     /**
