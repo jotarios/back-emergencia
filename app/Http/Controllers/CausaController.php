@@ -41,10 +41,9 @@ class CausaController extends Controller
         $client = new \GuzzleHttp\Client();
 
         $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents();
-       
 
         $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents();
-
+        
         return view('causas.create', ['eventDetails' => json_decode($eventDetails), 'picture' => json_decode($eventPhoto)]);
     }
 
