@@ -70,9 +70,7 @@
     <div class="row">
       <div class="container">
         <div class="col s4">
-          <div class="card-panel red darken-4 center">
-            <span class="white-text titulo3"><a href="#" data-target="modal_agregar" class="white-text">AGREGAR EVENTO</a>
-          </span>
+          <a class="waves-effect waves-light btn-large red darken-4" data-target="modal_agregar" >Agregar Evento</a>
         </div>
       </div>
     </div>
@@ -100,8 +98,10 @@
         $('#modal_agregar').modal({
           complete: function() { 
             var facebook_url = $('#facebook_event').val();
-            var url_parts = facebook_url.match(/https?\:\/\/(?:www\.)?facebook\.com\/(\d+|[A-Za-z0-9\.]+)\/(\d+|[A-Za-z0-9\.]+)\/?/);
-            window.location.replace("{{ url('causas/crear')}}" + "/" + url_parts[2]);
+            if(facebook_url) {
+              var url_parts = facebook_url.match(/https?\:\/\/(?:www\.)?facebook\.com\/(\d+|[A-Za-z0-9\.]+)\/(\d+|[A-Za-z0-9\.]+)\/?/);
+              window.location.replace("{{ url('causas/crear')}}" + "/" + url_parts[2]);
+            }
           }
         });
   		});
