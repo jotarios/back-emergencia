@@ -1,31 +1,20 @@
 @extends('layouts.default')
 
 @section('content')
-	<div class="row red vh">
-      <div class="container">
-        <br>
-        <div class="row col s12 center titulo2 white-text">
-          Unidos somos <b>#UnaSolaFuerza</b>
+	<div class="grey row vh">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center">
+          Unidos somos <strong>#UnaSolaFuerza</strong>
         </div>
-        <div class="container">
-          <div class="col s12">
-            <div class="col s6">
-              <div class="card-panel yellow darken-2 center">
-                <a href="http://emergenciaperu.com/"><span class="black-text titulo3">ALERTA DE HUAYCOS
-                </span></a>
-              </div>
-            </div>
-            <div class="col s6">
-              <div class="card-panel yellow darken-2 center">
-                <a href="/voluntarios"><span class="black-text titulo3">VOLUNTARIOS
-                </span></a>
-              </div>
-            </div>
-          </div>
-          <br>
+
+        <div class="col s12 center">
+          <a href="#" class="waves-effect waves-light btn">SER VOLUNTARIO</a>
+          <a href="#" class="waves-effect waves-light btn">DAR REFUGIO</a>
         </div>
       </div>
     </div>
+
     <br>
     <div class="row btt">
       <div class="container">

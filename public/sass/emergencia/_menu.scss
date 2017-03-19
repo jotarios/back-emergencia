@@ -22,7 +22,7 @@
         font-size: 14px;
 
         &:hover {
-            background-color: #f6f3f3;
+            background-color: color("grey", "base");
         }
     }
 
@@ -37,9 +37,10 @@
         padding-left: 14px;
         padding-right: 14px;
         overflow: visible;
+        color: #222224!important;
 
         &:hover {
-            background-color: #f6f3f3;
+            background-color: color("grey", "base");
         }
 
         &:before {
