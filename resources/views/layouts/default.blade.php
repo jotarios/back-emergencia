@@ -5,24 +5,28 @@
 		<title>EMERGENCIA</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-		<link rel="stylesheet" href="{{URL::asset('css/materialize.min.css')}}">
-		<link rel="stylesheet" href="{{URL::asset('css/helpers.css')}}" media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:500,700" rel="stylesheet">
+		<link rel="stylesheet" href="{{URL::asset('css/materialize.css')}}">
 		<!--Custom CSS-->
 		@yield('css')
 	</head>
-	<body id="voluntario">
-		<nav class="grey lighten-5">
-      		<div class="nav-wrapper">
-      			<a href="#" class="brand-logo right black-text">Hola, {{ Auth::user()->name}}</a>
-	        	<ul id="nav-mobile" class="left hide-on-med-and-down black-text">
-		          	<li><a href="#" class="black-text titulo1"><span style="color: red;">E</span>mergencias <b>Perú</b></a></li>
-		          	<li><a href="http://emergenciaperu.com/" target="_blank" class="black-text">ALERTAS DE HUAYCO</a></li>
-		          	<li><a href="voluntarios" class="black-text">VOLUNTARIOS</a></li>
-		          	<li><a href="#" class="black-text">CONTACTO</a></li>
-	        	</ul>
-      		</div>
-    	</nav>
+	<body>
+    <div class="emergencia-menu">
+        <div class="container">
+            <nav class="white row">
+                <div class="nav-wrapper col s12">
+                  <a href="#" class="brand-logo"><img src="{{ url::asset('img/logo.png') }}"></a>
+                  <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="http://emergenciaperu.com/">INICIO</a></li>
+                    <li><a href="http://emergenciaperu.com/reports">INCIDENCIAS</a></li>
+                    <li><a href="http://emergenciaperu.com/reports/submit">ENVIAR INCIDENCIA</a></li>
+                    <li><a href="http://emergenciaperu.com/alerts">RECIBIR ALERTAS</a></li>
+                    <li><a href="{{ url('/') }}" class="waves-effect waves-light btn grey-text"><img src="{{ url::asset('img/heart-icon.png') }}">BRINDAR AYUDA</a></li>
+                  </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
 
     	@yield('content')
 

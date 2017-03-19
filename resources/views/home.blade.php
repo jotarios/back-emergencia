@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-	<div class="row red darken-4 vh">
+	<div class="row red vh">
       <div class="container">
         <br>
         <div class="row col s12 center titulo2 white-text">
