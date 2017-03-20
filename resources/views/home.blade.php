@@ -18,14 +18,14 @@
 
       <div class="row">
         <div class="col s12">
-          <h3 class="voluntariado-heading">Voluntariados nivel nacional</h3>
+          <h3 class="voluntariado-heading">Voluntariados a nivel nacional</h3>
           <p class="text-crear-eventos">Hemos reunido las iniciativas de voluntariado para llevar ayuda a donde más lo necisitan. <a class="btn-flat waves-effect btn-large right agregar-evento" data-target="modal_agregar" >Agregar Evento</a></p>
         </div>
       </div>
 
       <div class="row eventos">
         <div class="col m12">
-        
+
           <div class="card horizontal">
             <div class="card-image">
               <img src="https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17389204_1343824832331687_5818148292517869280_o.jpg?oh=fbbf2dc58711cab3322170bd6072b4f8&oe=59634096">
