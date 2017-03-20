@@ -16,13 +16,12 @@ class Causas extends Migration
             $table->increments('id');
             $table->string('name',150);
             $table->text('description');
-            $table->float('gather_point_lat'); //float
-            $table->float('gather_point_lng');
-            $table->string('gather_point_street', 100)->nullable();
+            $table->float('gather_point_lat',8,4); //float
+            $table->float('gather_point_lng',8,4);
             $table->string('city');
             $table->string('street');            
-            $table->float('work_zone_lat');
-            $table->float('work_zone_lng');
+            $table->float('work_zone_lat',8,4);
+            $table->float('work_zone_lng',8,4);
             $table->string('work_zone_radious')->nullable();
             $table->integer('expected_volunteers');
             $table->string('picture');

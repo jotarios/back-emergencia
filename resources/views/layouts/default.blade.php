@@ -16,7 +16,7 @@
             <nav class="white row">
                 <div class="nav-wrapper col s12">
                   <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                  <a href="#" class="brand-logo"><img src="{{ url::asset('img/logo.png') }}"></a>
+                  <a href="http://emergenciaperu.com" class="brand-logo"><img src="{{ url::asset('img/logo.png') }}"></a>
                   <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="http://emergenciaperu.com/reports">INCIDENCIAS</a></li>
                     <li><a href="http://emergenciaperu.com/reports/submit">ENVIAR INCIDENCIA</a></li>
