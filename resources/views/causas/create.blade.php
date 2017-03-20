@@ -78,11 +78,12 @@
     </div>
     <input type="hidden" id="gather_point_lat" name="gather_point_lat" value="{{$eventDetails['place']['location']['latitude'] or '-12.0552608'}}">
     <input type="hidden" id="gather_point_lng" name="gather_point_lng" value="{{$eventDetails['place']['location']['longitude'] or '-77.0627323'}}">
-    <input type="hidden" name="street" value="{{$eventDetails['place']['location']['street']}}">
-    <input type="hidden" name="city" value="{{$eventDetails['place']['location']['city']}}">
+    <input type="hidden" name="street" value="{{$eventDetails['place']['location']['street'] or ''}}">
+    <input type="hidden" name="city" value="{{$eventDetails['place']['location']['city'] or ''}}">
     <input type="hidden" id="work_zone_lat" name="work_zone_lat" value="{{ isset($eventDetails['place']['location']['latitude']) ? $eventDetails['place']['location']['latitude'] - 0.0010 : '-12.0552608'}}">
     <input type="hidden" id="work_zone_lng" name="work_zone_lng" value="{{ isset($eventDetails['place']['location']['longitude']) ? $eventDetails['place']['location']['longitude'] + 0.0050 : '-77.0627323'}}">
     <input type="hidden" name="work_zone_radious" value="">
+    <input type="hidden" name="facebook_id" value="{{$eventDetails['id'] or ''}}">
   </div>
   </form>
 </div>

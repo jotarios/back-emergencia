@@ -40,16 +40,18 @@
                   <i class="tiny material-icons">av_timer</i> <span>{{ $causa['start_time']->format('h:i') }}</p></span>
                 </p>
                 <p><i class="tiny material-icons">perm_identity</i> {{ $causa['expected_volunteers']}} Voluntarios</p>
-                <p><i class="tiny material-icons">verified_user</i> ORGANIZADO POR LIBELULA PERU</p>
               </div>
               <div class="card-action">
                 <a href="#" class="red-text">Ver más</a>
-                <a href="#" class="red-text">Inscribirse</a>
+                <a href="http://www.facebook.com/events/{{$causa['facebook_id']}}" class="red-text" target="_blank">Inscribirse</a>
               </div>
             </div>
           </div>
           @endforeach
+        </div>
 
+        <div class="col m12 center">
+          {!! $causas->render() !!}
         </div>
 
     </div>

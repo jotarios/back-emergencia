@@ -15,6 +15,7 @@ class Causas extends Migration
         Schema::create('causas', function (Blueprint $table){
             $table->increments('id');
             $table->string('name',150);
+            $table->bigInteger('facebook_id')->nullable();
             $table->text('description');
             $table->float('gather_point_lat',8,4); //float
             $table->float('gather_point_lng',8,4);
@@ -24,7 +25,7 @@ class Causas extends Migration
             $table->float('work_zone_lng',8,4);
             $table->string('work_zone_radious')->nullable();
             $table->integer('expected_volunteers');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->timestamps();
