@@ -39,7 +39,7 @@ class CausaController extends Controller
 
         try {
             $eventDetails = json_decode($client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents(),true);
-            dd($eventDetails);
+            //dd($eventDetails);
             $eventPhoto = json_decode($client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents(),true);
         }
         catch(\GuzzleHttp\Exception\ClientException $e) {
