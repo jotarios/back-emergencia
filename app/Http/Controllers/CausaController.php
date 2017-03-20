@@ -63,12 +63,12 @@ class CausaController extends Controller
             'description' => 'required',
             'gather_point_lat' => 'required',
             'gather_point_lng' => 'required',
-            'gather_point_street' => 'required',
+            //'gather_point_street' => 'required',
             'city' => 'required',
-            'department' => 'required',
-            'work_zone_lat' => 'required',
-            'work_zone_lng' => 'required',
-            'work_zone_radious' => 'required',
+            //'department' => 'required',
+            //'work_zone_lat' => 'required',
+            //'work_zone_lng' => 'required',
+            //'work_zone_radious' => 'required',
             'expected_volunteers' => 'required',
             'picture' => 'required',
             'start_time' => 'required',
@@ -83,7 +83,7 @@ class CausaController extends Controller
         $causa = Causa::create($request->all());
         //dd($causa);
         $request->session()->flash('message', '¡Subido con éxito!');
-        return redirect()->route('/');
+        return redirect()->route('home');
     }
 
     /**

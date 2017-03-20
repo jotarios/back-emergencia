@@ -18,12 +18,12 @@ class Causas extends Migration
             $table->text('description');
             $table->float('gather_point_lat'); //float
             $table->float('gather_point_lng');
-            $table->string('gather_point_street', 100);
+            $table->string('gather_point_street', 100)->nullable();
             $table->string('city');
             $table->string('street');            
             $table->float('work_zone_lat');
             $table->float('work_zone_lng');
-            $table->string('work_zone_radious');
+            $table->string('work_zone_radious')->nullable();
             $table->integer('expected_volunteers');
             $table->string('picture');
             $table->dateTime('start_time');

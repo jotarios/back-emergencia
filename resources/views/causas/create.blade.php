@@ -4,7 +4,8 @@
 <div class="container-fluid grey lighten-3">
 <div class="container section">
   <form action="{{action('CausaController@store') }}" method="POST">
-  <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+  {{ csrf_field() }}
+  
   <div class="row">
 
     <div class="col s12 m8 l8">
@@ -73,7 +74,14 @@
         </div>
       </div>
     </div>
-
+    <input type="hidden" name="gather_point_lat" value="{{$eventDetails['place']['location']['latitude']}}">
+    <input type="hidden" name="gather_point_lng" value="{{$eventDetails['place']['location']['longitude']}}">
+    <input type="hidden" name="gather_point_street" value="">
+    <input type="hidden" name="street" value="{{$eventDetails['place']['location']['street']}}">
+    <input type="hidden" name="city" value="{{$eventDetails['place']['location']['city']}}">
+    <input type="hidden" name="work_zone_lat" value="">
+    <input type="hidden" name="work_zone_lng" value="">
+    <input type="hidden" name="work_zone_radious" value="">
   </div>
   </form>
 </div>
@@ -115,6 +123,12 @@ function initMap() {
   });
   marker.addListener('click', toggleBounce);
   marker1.addListener('click',toggleBounce);
+ 
+  google.maps.event.addListener(marker1, 'dragend', function (event) {
+    document.getElementById("work_zone_lat").value = marker1.getPosition.lat();
+    document.getElementById("work_zone_lng").value = marker1.getPosition.lng();
+  });
+
 }
 function toggleBounce() {
   if (marker.getAnimation() !== null) {
