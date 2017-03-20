@@ -80,7 +80,7 @@ class CausaController extends Controller
         $causa['end_time'] = Carbon::createFromFormat('Y/m/d', $request->end_time_submit);
         $causa = Causa::create($causa);
 
-        $request->session()->flash('message', '¡Subido con éxito!');
+        $request->session()->flash('success', '¡Subido con éxito!');
         return redirect()->route('home');
     }
 

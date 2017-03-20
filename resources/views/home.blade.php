@@ -24,6 +24,18 @@
       </div>
 
       <div class="row eventos">
+
+        <div class="col m12">
+        @if(Session::has('success'))
+
+          <div class="card green">
+            <div class="card-content white-text">
+              Evento agregado exitosamente
+            </div>
+          </div>
+        @endif
+        </div>
+
         <div class="col m12">
 
           @foreach($causas as $causa)
