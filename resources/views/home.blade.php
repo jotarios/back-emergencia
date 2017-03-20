@@ -1,8 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="grey lighten-4 row general-unidos">
-
+    <div class="grey lighten-4 ">
       <div class="container">
         <div class="row general-title-unidos">
           <div class="col s12 center unidos-heading">
@@ -12,44 +11,45 @@
             <a href="http://unasolafuerza.pe/#voluntariado" class="waves-effect waves-light heading-button btn-large red" target="_blank">SER VOLUNTARIO</a>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="row">
-          <div class="col s12">
-            <h3>Voluntariados y refugios a nivel nacional</h3>
-          </div>
+    <div class="container">
+
+      <div class="row">
+        <div class="col s12">
+          <h3 class="voluntariado-heading">Voluntariados a nivel nacional</h3>
+          <p class="text-crear-eventos">Hemos reunido las iniciativas de voluntariado para llevar ayuda a donde más lo necisitan. <a class="btn-flat waves-effect btn-large right agregar-evento" data-target="modal_agregar" >Agregar Evento</a></p>
         </div>
       </div>
 
-      <div class="container">
-        <div class="row" id="eventos">
-          <div class="agregar-evento col s12">
-            <p class="text-crear-eventos">Hemos reunido las iniciativas de voluntariado para llevar ayuda a donde más lo necisitan. <a class="btn-flat waves-effect btn-large right" data-target="modal_agregar" >Agregar Evento</a></p>
-          </div>
-        </div>
+      <div class="row eventos">
+        <div class="col m12">
 
-        <div class="row">
-          <div class="col m12">
-            <div class="card horizontal">
-              <div class="card-image">
-                <img src="http://lorempixel.com/100/190/nature/6">
+          <div class="card horizontal">
+            <div class="card-image">
+              <img src="https://scontent.xx.fbcdn.net/v/t31.0-8/s720x720/17389204_1343824832331687_5818148292517869280_o.jpg?oh=fbbf2dc58711cab3322170bd6072b4f8&oe=59634096">
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <span class="card-title">ANGOLO Y ANCHOR</span>
+                <p>
+                  <i class="tiny material-icons">language</i> <span>Chosica, Lima</span>
+                  <i class="tiny material-icons">date_range</i> <span>Mar 24, 2017</span>
+                  <i class="tiny material-icons">av_timer</i> <span>8:30 pm</p></span>
+                </p>
+                <p><i class="tiny material-icons">perm_identity</i> 44 Voluntarios</p>
+                <p><i class="tiny material-icons">verified_user</i> ORGANIZADO POR LIBELULA PERU</p>
               </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <p class="content-title"><b>ANGOLO Y ANCHOR</b></p>
-                  <p><i class="small material-icons">language</i> Chosica, Lima</p>
-                  <p><i class="small material-icons">perm_contact_calendar</i> Mar 24, 2017</p>
-                  <p><i class="small material-icons">av_timer</i> 8:30 pm</p>
-                  <p><i class="small material-icons">perm_identity</i> 44 Voluntarios</p>
-                  <p><i class="small material-icons">verified_user</i> ORGANIZADO POR LIBELULA PERU</p>
-                </div>
-                <div class="card-action">
-                  <a class="waves-effect btn white black-text"><i class="material-icons left">info_outline</i>Ver más</a>
-                  <a class="waves-effect btn white black-text"><i class="material-icons left">theaters</i>Inscribirse</a>
-                </div>
+              <div class="card-action">
+                <a href="#" class="red-text">Ver más</a>
+                <a href="#" class="red-text">Inscribirse</a>
               </div>
             </div>
           </div>
-      </div>
+
+        </div>
+
     </div>
 
 
