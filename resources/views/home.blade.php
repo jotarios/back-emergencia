@@ -80,6 +80,9 @@
               var url_parts = facebook_url.match(/https?\:\/\/(?:www\.)?facebook\.com\/(\d+|[A-Za-z0-9\.]+)\/(\d+|[A-Za-z0-9\.]+)\/?/);
               window.location.replace("{{ url('causas/crear')}}" + "/" + url_parts[2]);
             }
+            else {
+              window.location.replace("{{ url('causas/crear')}}");
+            }
           }
         });
       });
