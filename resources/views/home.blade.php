@@ -9,6 +9,7 @@
           </div>
           <div class="col s12 center unidos-buttons">
             <a href="http://unasolafuerza.pe/#voluntariado" class="waves-effect waves-light heading-button btn-large red" target="_blank">SER VOLUNTARIO</a>
+            <a href="http://refugios.emergenciaperu.com/" class="waves-effect waves-light heading-button btn-large red" target="_blank">DAR REFUGIO</a>
           </div>
         </div>
       </div>
