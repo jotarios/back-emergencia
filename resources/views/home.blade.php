@@ -54,7 +54,7 @@
                 <p><i class="tiny material-icons">perm_identity</i> {{ $causa['expected_volunteers']}} Voluntarios</p>
               </div>
               <div class="card-action">
-                <a href="#" class="red-text">Ver más</a>
+                <!-- <a href="#" class="red-text">Ver más</a> -->
                 <a href="http://www.facebook.com/events/{{$causa['facebook_id']}}" class="red-text" target="_blank">Inscribirse</a>
               </div>
             </div>
