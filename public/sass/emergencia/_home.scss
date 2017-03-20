@@ -1,0 +1,43 @@
+.general-unidos{
+  height: 70vh;
+  vertical-align: middle;
+}
+
+.general-title-unidos{
+  padding: 90px 0px 10px 0px;
+}
+
+.unidos-heading h1 {
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  color: #2e2d30;
+
+  strong {
+    font-weight: 700;
+  }
+}
+
+.unidos-buttons {
+  margin-bottom: 90px;
+}
+
+a.heading-button {
+  font-size: 24px;
+  font-weight: 700;
+  height: 78px;
+  line-height: 78px;
+  margin: 0 5px 0;
+  width: 318px;
+  box-shadow: 0px 4px 0px 0px rgba(157,49,33,1);
+}
+
+.agregar-evento a {
+  height: 60px;
+  width: 218px;
+  border-radius: 5px;
+  border: solid 1px #979797;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  color: #2e2d30;
+}

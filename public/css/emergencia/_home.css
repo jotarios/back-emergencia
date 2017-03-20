@@ -1,0 +1,109 @@
+.general-unidos {
+  height: 70vh;
+  vertical-align: middle;
+}
+
+.general-title-unidos {
+  padding: 93px 0px 10px 0px;
+}
+
+.unidos-heading h1 {
+  font-size: 36px;
+  font-weight: 300;
+  text-align: center;
+  color: #2e2d30;
+}
+
+.unidos-heading h1 strong {
+  font-weight: 700;
+}
+
+a.heading-button {
+  font-size: 24px;
+  font-weight: 700;
+  height: 78px;
+  line-height: 78px;
+}
+
+a.button-2 {
+  height: 60px;
+  width: 218px;
+  border-radius: 5px;
+  border: solid 1px #979797;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  color: #2e2d30;
+}
+
+.text-crear-eventos {
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+.agregar-evento {
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 992px) {
+  .agregar-evento {
+    text-align: center;
+  }
+}
+
+.evento-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.evento-image img {
+  min-width: 270px;
+  margin: 10px 0px;
+}
+
+.evento-content {
+  line-height: 15px;
+}
+
+.evento-content .card-content {
+  padding: 20px 0px;
+}
+
+.evento-content p {
+  padding-right: 15px;
+  display: inline-block;
+}
+
+.evento-content p i {
+  vertical-align: middle;
+}
+
+.evento-content p.content-title {
+  font-size: 25px;
+  line-height: 25px;
+}
+
+.evento-content .card-action.card-button {
+  padding: 5px;
+}
+
+.evento-content .card-action.card-button a {
+  border-radius: 3px;
+  border: solid 1px #979797;
+  font-size: 15px;
+  color: #2e2d30;
+  padding: 0px 10px;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 992px) {
+  .evento-content p {
+    display: block;
+  }
+}
+
+.horizontal {
+  margin-bottom: 40px;
+}

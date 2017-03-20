@@ -27,7 +27,7 @@ class CausaController extends Controller
         return View::make('causas.index')
             ->with('causas', $causas);
         */
-        return view('voluntarios');
+        return view('home');
     }
 
     /**
@@ -35,16 +35,21 @@ class CausaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id = null)
     {
         $token = Auth::user()->token;
         $client = new \GuzzleHttp\Client();
 
-        $eventDetails = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents();
-        //dd($eventDetails);
-        $eventPhoto = $client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents();
-        
-        return view('causas.create', ['eventDetails' => json_decode($eventDetails), 'picture' => json_decode($eventPhoto)]);
+        try {
+            $eventDetails = json_decode($client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents(),true);
+            $eventPhoto = json_decode($client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents(),true);
+        }
+        catch(\GuzzleHttp\Exception\ClientException $e) {
+            $eventDetails = [];
+            $eventPhoto = [];
+        }
+
+        return view('causas.create', ['eventDetails' => $eventDetails, 'picture' => $eventPhoto]);
     }
 
     /**
@@ -107,7 +112,7 @@ class CausaController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+
     }
 
     /**
