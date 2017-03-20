@@ -30,6 +30,8 @@
         </div>        
         
         <p>Mapa</p>
+        <p><img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png">Punto de encuentro</p>
+        <p><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png">Punto en el que se brindará ayuda</p>
         <div id="map" style="width: 100%; height: 400px;"></div>
           <div class="row reduceRow">
             <div class="input-field col s12 m12 l12">
@@ -74,13 +76,12 @@
         </div>
       </div>
     </div>
-    <input type="hidden" name="gather_point_lat" value="{{$eventDetails['place']['location']['latitude']}}">
-    <input type="hidden" name="gather_point_lng" value="{{$eventDetails['place']['location']['longitude']}}">
-    <input type="hidden" name="gather_point_street" value="">
+    <input type="hidden" id="gather_point_lat" name="gather_point_lat" value="{{$eventDetails['place']['location']['latitude'] or '-12.0552608'}}">
+    <input type="hidden" id="gather_point_lng" name="gather_point_lng" value="{{$eventDetails['place']['location']['longitude'] or '-77.0627323'}}">
     <input type="hidden" name="street" value="{{$eventDetails['place']['location']['street']}}">
     <input type="hidden" name="city" value="{{$eventDetails['place']['location']['city']}}">
-    <input type="hidden" name="work_zone_lat" value="">
-    <input type="hidden" name="work_zone_lng" value="">
+    <input type="hidden" id="work_zone_lat" name="work_zone_lat" value="{{ isset($eventDetails['place']['location']['latitude']) ? $eventDetails['place']['location']['latitude'] - 0.0010 : '-12.0552608'}}">
+    <input type="hidden" id="work_zone_lng" name="work_zone_lng" value="{{ isset($eventDetails['place']['location']['longitude']) ? $eventDetails['place']['location']['longitude'] + 0.0050 : '-77.0627323'}}">
     <input type="hidden" name="work_zone_radious" value="">
   </div>
   </form>
@@ -119,14 +120,20 @@ function initMap() {
     map:map,
     draggable:true,
     animation:google.maps.Animation.DROP,
-    position:{lat:{{ isset($eventDetails['place']['location']['latitude']) ? $eventDetails['place']['location']['latitude'] - 0.0010 : '-12.0552608'}}, lng: {{ isset($eventDetails['place']['location']['longitude']) ? $eventDetails['place']['location']['longitude'] + 0.0050 : '-77.0627323'}} }
+    position:{lat:{{ isset($eventDetails['place']['location']['latitude']) ? $eventDetails['place']['location']['latitude'] - 0.0010 : '-12.0552608'}}, lng: {{ isset($eventDetails['place']['location']['longitude']) ? $eventDetails['place']['location']['longitude'] + 0.0050 : '-77.0627323'}} },
+    icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
   });
   marker.addListener('click', toggleBounce);
   marker1.addListener('click',toggleBounce);
  
+  google.maps.event.addListener(marker, 'dragend', function (event) {
+    $("#gather_point_lat").val(marker1.getPosition().lat);
+    $("#gather_point_lng").val(marker1.getPosition().lng);
+  });
+
   google.maps.event.addListener(marker1, 'dragend', function (event) {
-    document.getElementById("work_zone_lat").value = marker1.getPosition.lat();
-    document.getElementById("work_zone_lng").value = marker1.getPosition.lng();
+    $("#work_zone_lat").val(marker1.getPosition().lat);
+    $("#work_zone_lng").val(marker1.getPosition().lng);
   });
 
 }

@@ -18,7 +18,6 @@ class Causas extends Migration
             $table->text('description');
             $table->float('gather_point_lat'); //float
             $table->float('gather_point_lng');
-            $table->string('gather_point_street', 100)->nullable();
             $table->string('city');
             $table->string('street');            
             $table->float('work_zone_lat');
