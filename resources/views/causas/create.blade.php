@@ -23,7 +23,7 @@
 
         <div class="row reduceRow">         
           <div class="input-field col s12 m12 l12">
-            <input value="{{$eventDetails['name'] or ''}}" id="title" type="text" class="validate">
+            <input value="{{$eventDetails['name'] or ''}}" name="name" id="title" type="text" class="validate">
             <label class="active" for="title">Nombre del Evento</label>
           </div>
         </div>        
@@ -32,18 +32,18 @@
         <div id="map" style="width: 100%; height: 400px;"></div>
           <div class="row reduceRow">
             <div class="input-field col s12 m12 l12">
-              <input id="last_name" type="text" class="validate">
+              <input name="expected_volunteers" id="expected_volunteers" type="text" class="validate">
               <label for="last_name">Número de Voluntarios Esperados</label>
             </div>
           </div>
 
           <div class="row reduceRow">
             <div class="input-field col s6">
-              <input placeholder="18 de mayo 8:00 p.m." id="start_time" type="date" value="{{$eventDetails['start_time'] or ''}}" class="validate datepicker">
+              <input name="start_time" placeholder="18 de mayo 8:00 p.m." id="start_time" type="date" value="{{$eventDetails['start_time'] or ''}}" class="validate datepicker">
               <label for="start_time">Fecha de Inicio</label>
             </div>
             <div class="input-field col s6">
-              <input placeholder="18 de mayo 8:00 p.m." id="end_time" type="date" class="validate datepicker">
+              <input name="end_time" placeholder="18 de mayo 8:00 p.m." id="end_time" type="date" class="validate datepicker">
               <label for="end_time">Fecha de Fin</label>
             </div>
           </div>
@@ -60,12 +60,13 @@
         @if(!empty($picture['cover']['source']))
         <div class="card-image">
           <img src="{{ $picture['cover']['source'] }}">
+          <input type="hidden" name="picture" value="{{ $picture['cover']['source'] }}">
         </div>
         @endif
         <div class="card-content">
           <div class="row reduceRow">
             <div class="input-field s12 m12 l12">
-              <textarea id="description" class="materialize-textarea">{{$eventDetails['description'] or ''}}</textarea>
+              <textarea name="description" id="description" class="materialize-textarea">{{$eventDetails['description'] or ''}}</textarea>
               <label for="description">Descripción</label>
             </div>              
           </div>

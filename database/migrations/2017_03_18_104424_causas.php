@@ -14,7 +14,8 @@ class Causas extends Migration
     {
         Schema::create('causas', function (Blueprint $table){
             $table->increments('id');
-            $table->string('description', 1000);
+            $table->string('name',150);
+            $table->text('description');
             $table->float('gather_point_lat'); //float
             $table->float('gather_point_lng');
             $table->string('gather_point_street', 100);
