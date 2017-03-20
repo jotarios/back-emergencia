@@ -21,10 +21,9 @@ class CausaController extends Controller
      */
     public function index()
     {
-        /*
         $causas = Causa::all();
-        */
-        return view('home');
+        
+        return view('home', ['causas' => $causas]);
     }
 
     /**
