@@ -9,8 +9,7 @@
             <h1>Unidos somos <strong>#unasolafuerza</strong></h1>
           </div>
           <div class="col s12 center unidos-buttons">
-            <a href="#" class="waves-effect waves-light heading-button btn-large red">SER VOLUNTARIO</a>
-            <a href="#" class="waves-effect waves-light heading-button btn-large red">DAR REFUGIO</a>
+            <a href="http://unasolafuerza.pe/#voluntariado" class="waves-effect waves-light heading-button btn-large red" target="_blank">SER VOLUNTARIO</a>
           </div>
         </div>
 
