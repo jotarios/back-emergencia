@@ -39,6 +39,7 @@ class CausaController extends Controller
 
         try {
             $eventDetails = json_decode($client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?access_token=' . $token)->getBody()->getContents(),true);
+            //dd($eventDetails);
             $eventPhoto = json_decode($client->request("GET", "https://graph.facebook.com/v2.8/" . $id . '?fields=cover&access_token=' . $token)->getBody()->getContents(),true);
         }
         catch(\GuzzleHttp\Exception\ClientException $e) {
@@ -58,6 +59,7 @@ class CausaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'name'=> 'required',
             'description' => 'required',
             'gather_point_lat' => 'required',
             'gather_point_lng' => 'required',
@@ -79,6 +81,7 @@ class CausaController extends Controller
         }
 
         $causa = Causa::create($request->all());
+        //dd($causa);
         $request->session()->flash('message', '¡Subido con éxito!');
         return redirect()->route('/');
     }
