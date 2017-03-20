@@ -61,7 +61,6 @@ class CausaController extends Controller
             'description' => 'required',
             'gather_point_lat' => 'required',
             'gather_point_lng' => 'required',
-            'city' => 'required',
             'work_zone_lat' => 'required',
             'work_zone_lng' => 'required',
             'expected_volunteers' => 'required',
