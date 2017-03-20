@@ -18,7 +18,7 @@
 
       <div class="row">
         <div class="col s12">
-          <h3 class="voluntariado-heading">Voluntariados y refugios a nivel nacional</h3>
+          <h3 class="voluntariado-heading">Voluntariados nivel nacional</h3>
           <p class="text-crear-eventos">Hemos reunido las iniciativas de voluntariado para llevar ayuda a donde más lo necisitan. <a class="btn-flat waves-effect btn-large right agregar-evento" data-target="modal_agregar" >Agregar Evento</a></p>
         </div>
       </div>
