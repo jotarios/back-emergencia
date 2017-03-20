@@ -47,7 +47,7 @@
             <div class="card-stacked">
               <div class="card-content">
                 <span class="card-title">{{ $causa['name'] }}</span>
-                @if(isset($causa['street']) and isset($causa['city']))
+                @if(!empty($causa['street']) and !empty($causa['city']))
                 <p><i class="tiny material-icons">language</i> {{ $causa['street'] }}, {{ $causa['city'] }}</p>
                 @endif
                 <p>
