@@ -80,13 +80,8 @@
     <input type="hidden" id="gather_point_lng" name="gather_point_lng" value="{{$eventDetails['place']['location']['longitude'] or '-77.0627323'}}">
     <input type="hidden" name="street" value="{{$eventDetails['place']['location']['street']}}">
     <input type="hidden" name="city" value="{{$eventDetails['place']['location']['city']}}">
-<<<<<<< HEAD
-    <input type="hidden" name="work_zone_lat" id="work_zone_lat">
-    <input type="hidden" name="work_zone_lng" id="work_zone_lng">
-=======
     <input type="hidden" id="work_zone_lat" name="work_zone_lat" value="{{ isset($eventDetails['place']['location']['latitude']) ? $eventDetails['place']['location']['latitude'] - 0.0010 : '-12.0552608'}}">
     <input type="hidden" id="work_zone_lng" name="work_zone_lng" value="{{ isset($eventDetails['place']['location']['longitude']) ? $eventDetails['place']['location']['longitude'] + 0.0050 : '-77.0627323'}}">
->>>>>>> eb67fe7e40b8c0039bc8da03b84413b0ba09cf86
     <input type="hidden" name="work_zone_radious" value="">
   </div>
   </form>
@@ -130,14 +125,6 @@ function initMap() {
   });
   marker.addListener('click', toggleBounce);
   marker1.addListener('click',toggleBounce);
-<<<<<<< HEAD
-  google.maps.event.addListener(marker1, 'dragend', function (event) {
-    document.getElementById("work_zone_lat").value = marker1.getPosition.lat();
-    document.getElementById("work_zone_lng").value = marker1.getPosition.lng();
-  }); 
-  
-=======
- 
   google.maps.event.addListener(marker, 'dragend', function (event) {
     $("#gather_point_lat").val(marker1.getPosition().lat);
     $("#gather_point_lng").val(marker1.getPosition().lng);
@@ -148,7 +135,6 @@ function initMap() {
     $("#work_zone_lng").val(marker1.getPosition().lng);
   });
 
->>>>>>> eb67fe7e40b8c0039bc8da03b84413b0ba09cf86
 }
 
 
