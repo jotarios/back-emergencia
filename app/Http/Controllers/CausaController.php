@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use Carbon\Carbon;
 use App\Causa;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,12 +63,9 @@ class CausaController extends Controller
             'description' => 'required',
             'gather_point_lat' => 'required',
             'gather_point_lng' => 'required',
-            //'gather_point_street' => 'required',
             'city' => 'required',
-            //'department' => 'required',
-            //'work_zone_lat' => 'required',
-            //'work_zone_lng' => 'required',
-            //'work_zone_radious' => 'required',
+            'work_zone_lat' => 'required',
+            'work_zone_lng' => 'required',
             'expected_volunteers' => 'required',
             'picture' => 'required',
             'start_time' => 'required',
@@ -80,8 +77,11 @@ class CausaController extends Controller
                 ->withErrors($validator);
         }
 
-        $causa = Causa::create($request->all());
-        dd($causa);
+        $causa = $request->all();
+        $causa['start_time'] =  Carbon::createFromFormat('Y/m/d', $request->start_time_submit);
+        $causa['end_time'] = Carbon::createFromFormat('Y/m/d', $request->end_time_submit);
+        $causa = Causa::create($causa);
+
         $request->session()->flash('message', '¡Subido con éxito!');
         return redirect()->route('home');
     }

@@ -94,6 +94,7 @@
 <script>
 var $startTime = $('#start_time').pickadate();
 var picker = $startTime.pickadate('picker');
+console.log(new Date("{{$eventDetails['start_time'] or ''}}"));
 picker.set('select', new Date("{{$eventDetails['start_time'] or ''}}"));
 
 var $endTime = $('#end_time').pickadate();
