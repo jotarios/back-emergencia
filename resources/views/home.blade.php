@@ -47,7 +47,9 @@
             <div class="card-stacked">
               <div class="card-content">
                 <span class="card-title">{{ $causa['name'] }}</span>
+                @if(isset($causa['street']) and isset($causa['city']))
                 <p><i class="tiny material-icons">language</i> {{ $causa['street'] }}, {{ $causa['city'] }}</p>
+                @endif
                 <p>
                   <i class="tiny material-icons">date_range</i> <span>{{ $causa['start_time']->toFormattedDateString() }}</span>
                   <i class="tiny material-icons">av_timer</i> <span>{{ $causa['start_time']->format('h:i') }}</p></span>
