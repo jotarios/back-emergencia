@@ -79,8 +79,8 @@
     <input type="hidden" name="gather_point_street" value="">
     <input type="hidden" name="street" value="{{$eventDetails['place']['location']['street']}}">
     <input type="hidden" name="city" value="{{$eventDetails['place']['location']['city']}}">
-    <input type="hidden" name="work_zone_lat" value="">
-    <input type="hidden" name="work_zone_lng" value="">
+    <input type="hidden" name="work_zone_lat" id="work_zone_lat">
+    <input type="hidden" name="work_zone_lng" id="work_zone_lng">
     <input type="hidden" name="work_zone_radious" value="">
   </div>
   </form>
@@ -123,13 +123,14 @@ function initMap() {
   });
   marker.addListener('click', toggleBounce);
   marker1.addListener('click',toggleBounce);
- 
   google.maps.event.addListener(marker1, 'dragend', function (event) {
     document.getElementById("work_zone_lat").value = marker1.getPosition.lat();
     document.getElementById("work_zone_lng").value = marker1.getPosition.lng();
-  });
-
+  }); 
+  
 }
+
+
 function toggleBounce() {
   if (marker.getAnimation() !== null) {
     marker.setAnimation(null);

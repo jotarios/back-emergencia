@@ -81,7 +81,7 @@ class CausaController extends Controller
         }
 
         $causa = Causa::create($request->all());
-        //dd($causa);
+        dd($causa);
         $request->session()->flash('message', '¡Subido con éxito!');
         return redirect()->route('home');
     }
