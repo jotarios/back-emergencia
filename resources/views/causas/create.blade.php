@@ -8,6 +8,17 @@
   <div class="row">
 
     <div class="col s12 m8 l8">
+      @if (count($errors) > 0)
+        <div class="card red">
+          <div class="card-content white-text">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+          </div>
+        </div>
+      @endif
       <div class="card-panel">
 
         <div class="row reduceRow">         

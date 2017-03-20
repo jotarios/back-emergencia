@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Validator;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -22,10 +23,6 @@ class CausaController extends Controller
     {
         /*
         $causas = Causa::all();
-        */
-        /*
-        return View::make('causas.index')
-            ->with('causas', $causas);
         */
         return view('home');
     }
@@ -60,7 +57,7 @@ class CausaController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = array(
+        $validator = Validator::make($request->all(), [
             'description' => 'required',
             'gather_point_lat' => 'required',
             'gather_point_lng' => 'required',
@@ -74,34 +71,16 @@ class CausaController extends Controller
             'picture' => 'required',
             'start_time' => 'required',
             'end_time' => 'required'
-        );
-
-        $validator = Validator::make(Input::all(), $rules);
+        ]);
 
         if($validator->fails()) {
-            return Redirect::to('/')
+            return redirect()->back()
                 ->withErrors($validator);
-        }else{
-            $causa = Causa::create($request->all());
-            
-            /*$causa->description = Input::get('description'); 
-            $causa->gather_point_lat = Input::get('gather_point_lat'); 
-            $causa->gather_point_lng = Input::get('gather_point_lng'); 
-            $causa->gather_point_street = Input::get('gather_point_street'); 
-            $causa->city = Input::get('city'); 
-            $causa->department = Input::get('department'); 
-            $causa->work_zone_lat = Input::get('work_zone_lat'); 
-            $causa->work_zone_lng = Input::get('work_zone_lng'); 
-            $causa->work_zone_radious = Input::get('work_zone_radious'); 
-            $causa->expected_volunteers = Input::get('expected_volunteers'); 
-            $causa->picture = Input::get('picture'); 
-            $causa->start_time = Input::get('start_time'); 
-            $causa->end_time = Input::get('end_time');
-            $causa->save();*/
-
-            Session::flash('message', '¡Subido con éxito!');
-            return Redirect::to('/');
         }
+
+        $causa = Causa::create($request->all());
+        $request->session()->flash('message', '¡Subido con éxito!');
+        return redirect()->route('/');
     }
 
     /**
