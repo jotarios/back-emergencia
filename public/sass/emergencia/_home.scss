@@ -38,7 +38,7 @@ a.heading-button {
   border-radius: 5px;
   border: solid 1px #979797;
   font-size: 18px;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.3px;1
   color: #2e2d30;
 }
 
@@ -58,4 +58,17 @@ h3.voluntariado-heading {
   height: 60px;
   line-height: 60px;
   border: solid 1px #979797;
+}
+
+
+//- RESPONSIVE
+
+@media (max-width: 620px) {
+  a.heading-button {
+    margin-bottom: 1em;
+  }
+
+  .text-crear-eventos{
+    line-height: 1.5em;
+  }
 }
